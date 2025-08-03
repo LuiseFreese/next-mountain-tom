@@ -53,9 +53,8 @@ url = "#contact"
 weight = 7
 
 # Site Params
-
- = \ \
-
+[params]
+googleMapsApiKey = \ \
 logo = "images/logo.png"
 author = "Tom Sporer"
 description = "Guiding & Coaching for your ultimate Adventure - Führung & Begleitung auf deinem ultimativen Abenteuer"
