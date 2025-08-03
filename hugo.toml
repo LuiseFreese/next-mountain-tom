@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://next-mountain.netlify.app/'
 languageCode = 'de'
 title = 'Next Mountain'
 theme = 'navigator-hugo-master'
