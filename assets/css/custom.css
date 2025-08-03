@@ -1,5 +1,52 @@
 /* Custom CSS für Next Mountain */
 
+/* DEBUGGING: Ensure Bootstrap is working correctly */
+/* Temporary test - remove after fixing */
+body::before {
+    content: "Bootstrap Test: " attr(class);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ff0000;
+    color: white;
+    padding: 5px;
+    z-index: 10000;
+    font-size: 12px;
+}
+
+/* Force Bootstrap container to work correctly */
+.container {
+    width: 100% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px !important;
+    }
+}
+
 /* Preloader deaktivieren */
 #preloader {
     display: none !important;
@@ -620,7 +667,7 @@ html {
 }
 
 /* CRITICAL: Specific solution for contact cards in contact section */
-/* Remove all conflicting rules and use one clear solution */
+/* Minimal intervention - only fix contact cards, don't touch global Bootstrap */
 
 /* Ensure contact section container is properly centered */
 #contact .container {
@@ -630,15 +677,15 @@ html {
     padding-right: 15px !important;
 }
 
-/* Emergency fix for contact cards layout - override everything */
-#contact .row.mt-5 {
+/* Specific fix ONLY for contact cards row */
+section#contact .row.mt-5 {
     display: flex !important;
     flex-wrap: wrap !important;
     margin-left: -15px !important;
     margin-right: -15px !important;
 }
 
-#contact .row.mt-5 > .col-md-4 {
+section#contact .row.mt-5 > .col-md-4 {
     padding-left: 15px !important;
     padding-right: 15px !important;
     margin-bottom: 30px !important;
@@ -646,7 +693,7 @@ html {
 
 /* Mobile: Stack cards vertically */
 @media (max-width: 767.98px) {
-    #contact .row.mt-5 > .col-md-4 {
+    section#contact .row.mt-5 > .col-md-4 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
@@ -654,7 +701,7 @@ html {
 
 /* Desktop: Three columns side by side */
 @media (min-width: 768px) {
-    #contact .row.mt-5 > .col-md-4 {
+    section#contact .row.mt-5 > .col-md-4 {
         flex: 0 0 33.333333% !important;
         max-width: 33.333333% !important;
         margin-bottom: 0 !important;
@@ -662,7 +709,7 @@ html {
 }
 
 /* Ensure contact cards themselves are properly sized */
-#contact .contact-card {
+section#contact .contact-card {
     width: 100% !important;
     box-sizing: border-box !important;
 }
