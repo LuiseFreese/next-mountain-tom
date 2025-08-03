@@ -1,0 +1,111 @@
+baseURL = 'https://example.org/'
+languageCode = 'de'
+title = 'Next Mountain'
+theme = 'navigator-hugo-master'
+summaryLength = 10
+
+# Build robots.txt file
+enableRobotsTXT = true
+# Enable RSS feeds
+rssLimit = 20
+# google analytics tracking id
+googleAnalytics = "" # your analytics ID
+
+enableGitInfo = false
+pygmentsCodeFences = true
+
+# Site Menus
+[menu]
+# Navbar Menus
+[[menu.nav]]
+name = "leistungen"
+url = "#leistungen"
+weight = 1
+
+[[menu.nav]]
+name = "ueber mich"
+url = "#uebermich"
+weight = 2
+
+[[menu.nav]]
+name = "philosophie"
+url = "#philosophie"
+weight = 3
+
+[[menu.nav]]
+name = "angebot"
+url = "#angebot"
+weight = 4
+
+[[menu.nav]]
+name = "zusatzangebote"
+url = "#zusatzangebote"
+weight = 5
+
+[[menu.nav]]
+name = "blog"
+url = "#blog"
+weight = 6
+
+[[menu.nav]]
+name = "kontakt"
+url = "#contact"
+weight = 7
+
+# Site Params
+
+ = \ \
+
+logo = "images/logo.png"
+author = "Tom Sporer"
+description = "Guiding & Coaching for your ultimate Adventure - Führung & Begleitung auf deinem ultimativen Abenteuer"
+dateFormat = "2. January 2006"
+
+# Hero Area Section
+[params.hero]
+enable = true
+heading = "Next Mountain"
+description = "Guiding & Coaching for your ultimate Adventure. Was wäre eigentlich, wenn Trailrunning nicht nur ein extremer Bergsport wäre – sondern ein besonderer Weg zur nächsten Version deines besten Selbst?"
+button = false
+btnText = ""
+btnURL = ""
+videoThumb = "images/slider/video-player-thumb.jpg"
+videoURL = "https://www.youtube.com/watch?v=cM5VMYF0nVk"
+
+# About Section
+[params.aboutSm]
+enable = true
+title = "Next Mountain Adventure"
+description = "Next Mountain Adventure ist deine Begleitung für achtsame Abenteuer in den Bergen - beim Trailrunning und auf Ultratrails jenseits von Zielzeiten und Platzierungen."
+
+# Blog Section On Homepage
+[params.blog]
+enable = true
+topTitle = "Erlebnisse"
+title = "Blog."
+subtitle = "Entdecke Geschichten von unseren Bergabenteuern und erhalte wertvolle Tipps für deine nächste Tour."
+
+# Contact Section
+[params.contact]
+enable = true
+topTitle = "KONTAKT"
+title = "Kontaktiere mich."
+subtitle = "Bereit für dein nächstes Bergabenteuer? Schreib mir und wir planen gemeinsam deine unvergessliche Tour."
+address = "Bruder Wilram Straße<br>Wörgl, Österreich"
+phone = "+12 34 567 89 10"
+email = "info@nextmountain.at"
+facebook = "https://www.facebook.com/"
+twitter = "https://twitter.com/"
+linkedin = "https://www.linkedin.com/"
+instagram = "https://www.instagram.com/"
+mapLatitude = "47.4849"
+mapLongitude = "12.0588"
+mapMarker = "images/favicon.png"
+
+# Call to Action Section
+[params.cta]
+enable = true
+bg = "images/call-to-action/call-to-action-bg-2.jpg"
+title = "Bereit für dein Abenteuer?"
+subtitle = "Kontaktiere uns noch heute und plane deine unvergessliche Bergtour mit professioneller Führung und Begleitung."
+btnText = "Jetzt anfragen"
