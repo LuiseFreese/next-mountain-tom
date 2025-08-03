@@ -620,142 +620,49 @@ html {
 }
 
 /* CRITICAL: Specific solution for contact cards in contact section */
-#contact .row.mt-5 {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    margin-top: 3rem !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
+/* Remove all conflicting rules and use one clear solution */
 
-@media (min-width: 768px) {
-    #contact .row.mt-5 {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: space-between !important;
-        gap: 20px !important;
-    }
-}
-
-/* Force contact cards columns to be equal width on desktop */
-@media (min-width: 768px) {
-    #contact .row.mt-5 > .col-md-4 {
-        flex: 1 !important;
-        max-width: none !important;
-        width: auto !important;
-        margin-bottom: 0 !important;
-    }
-}
-
-/* Ensure contact cards are properly sized */
-#contact .contact-card {
-    width: 100% !important;
-    margin-bottom: 20px !important;
-    box-sizing: border-box !important;
-}
-
-@media (min-width: 768px) {
-    #contact .contact-card {
-        margin-bottom: 0 !important;
-    }
-}
-
-/* Fallback CSS Grid solution for contact cards */
-.contact-us {
-    width: 100% !important;
-}
-
-.contact-us .container {
-    width: 100% !important;
+/* Ensure contact section container is properly centered */
+#contact .container {
     max-width: 1140px !important;
     margin: 0 auto !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
 }
 
-/* Flexbox fallback - keep both approaches */
-.contact-us .row {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    margin-left: -15px !important;
-    margin-right: -15px !important;
-}
-
-.contact-us .row > [class*="col-"] {
-    position: relative !important;
-    width: 100% !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-/* MOBILE FIRST: All cards full width on small screens */
-.contact-us .col-12,
-.contact-us .col-md-4 {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    width: 100% !important;
-}
-
-/* DESKTOP: Three columns on medium screens and up */
-@media (min-width: 768px) {
-    .contact-us .col-md-4 {
-        flex: 0 0 33.333333% !important;
-        max-width: 33.333333% !important;
-        width: 33.333333% !important;
-    }
-}
-
-/* Bootstrap grid system override - ensure it works globally */
-.row {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    margin-right: -15px !important;
-    margin-left: -15px !important;
-}
-
-.col-12 {
-    position: relative !important;
-    width: 100% !important;
-    padding-right: 15px !important;
-    padding-left: 15px !important;
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-}
-
-@media (min-width: 768px) {
-    .col-md-4 {
-        flex: 0 0 33.333333% !important;
-        max-width: 33.333333% !important;
-        width: 33.333333% !important;
-    }
-}
-
-/* Additional contact card fixes */
-.contact-card {
-    width: 100% !important;
-    margin-bottom: 30px !important;
-    box-sizing: border-box !important;
-}
-
 /* Emergency fix for contact cards layout - override everything */
 #contact .row.mt-5 {
     display: flex !important;
     flex-wrap: wrap !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
 }
 
+#contact .row.mt-5 > .col-md-4 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-bottom: 30px !important;
+}
+
+/* Mobile: Stack cards vertically */
+@media (max-width: 767.98px) {
+    #contact .row.mt-5 > .col-md-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Desktop: Three columns side by side */
 @media (min-width: 768px) {
     #contact .row.mt-5 > .col-md-4 {
         flex: 0 0 33.333333% !important;
         max-width: 33.333333% !important;
-        display: flex !important;
-    }
-    
-    #contact .row.mt-5 > .col-md-4 .contact-card {
-        width: 100% !important;
         margin-bottom: 0 !important;
     }
+}
+
+/* Ensure contact cards themselves are properly sized */
+#contact .contact-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
