@@ -289,6 +289,9 @@ body {
     border: none;
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .offer-card .card-header {
@@ -314,12 +317,18 @@ body {
 
 .card-body {
     padding: 30px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .package-features {
     list-style: none;
     padding: 0;
     margin: 0 0 30px 0;
+    flex: 1;
+    min-height: 200px;
 }
 
 .package-features li {
@@ -334,6 +343,7 @@ body {
 .card-price {
     text-align: center;
     margin: 20px 0;
+    margin-top: auto;
 }
 
 .price {
@@ -355,10 +365,8 @@ body {
 }
 
 .card-footer .btn {
-    border-radius: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 14px;
 }
 
 /* Modal Styling */
@@ -490,10 +498,18 @@ body {
     color: #E94F37 !important;
 }
 
+/* Base Button Styling - Barrierefrei */
+.btn {
+    border-radius: 25px !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
 .btn-primary {
     background-color: #E94F37 !important;
     border-color: #E94F37 !important;
-    border-radius: 25px !important;
+    color: #fff !important;
 }
 
 .btn-primary:hover,
@@ -501,13 +517,14 @@ body {
 .btn-primary:active {
     background-color: #d63916 !important;
     border-color: #d63916 !important;
-    border-radius: 25px !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(233, 79, 55, 0.3);
 }
 
 .btn-outline-primary {
     color: #E94F37 !important;
     border-color: #E94F37 !important;
-    border-radius: 25px !important;
+    background-color: transparent !important;
 }
 
 .btn-outline-primary:hover,
@@ -516,7 +533,37 @@ body {
     background-color: #E94F37 !important;
     border-color: #E94F37 !important;
     color: #fff !important;
-    border-radius: 25px !important;
+    box-shadow: 0 4px 12px rgba(233, 79, 55, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #5a6268 !important;
+    border-color: #5a6268 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.btn-outline-secondary {
+    color: #6c757d !important;
+    border-color: #6c757d !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
 }
 
 /* Inspirierendes Zitat Styling */
@@ -667,18 +714,15 @@ body {
     margin-top: 15px;
 }
 
-.newsletter-section .btn {
-    font-size: 17.5px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: 500;
-    width: 100%;
-    transition: all 0.3s ease;
+/* Newsletter Button - weiße Schrift erzwingen */
+.newsletter-section .btn-primary {
+    color: #fff !important;
 }
 
-.newsletter-section .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(233, 79, 55, 0.3);
+.newsletter-section .btn-primary:hover,
+.newsletter-section .btn-primary:focus,
+.newsletter-section .btn-primary:active {
+    color: #fff !important;
 }
 
 /* Blog Cards - Equal Height */

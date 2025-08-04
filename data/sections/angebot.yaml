@@ -139,13 +139,13 @@ tabs:
         size: "Custom"
         title: "Maßgeschneidert"
         subtitle: "Individual"
-        price: "Auf Anfrage"
-        period: ""
+        price: "auf Anfrage"
+        period: "sprich mich einfach an"
         featured: false
         features:
           - "Individuelle Konzeption"
           - "Flexible Leistungen"
-          - "Persönliche Beratung"
+          - "Persönliche Beratung"  
           - "Unbegrenzte Möglichkeiten"
         modal:
           title: "Custom Event - Maßgeschneiderte Lösung"
