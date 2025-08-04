@@ -2,7 +2,7 @@
 title: "Race 3 - Nachtlauf Berchtesgaden"
 date: 2025-05-10
 description: "Wenn Dunkelheit zur Herausforderung wird - Laufen bei Mondschein"
-image: "images/11_Portrait_Tom_Sporer_Sport_05_2025_55.JPG"
+image: "images/optimized/11_Portrait_Tom_Sporer_Sport_05_2025_55.jpg"
 draft: false
 ---
 

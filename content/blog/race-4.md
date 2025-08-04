@@ -2,7 +2,7 @@
 title: "Race 4 - Ultra Trail Tirol"
 date: 2025-04-25
 description: "Die ultimative Ausdauerprüfung durch drei Täler - 100km pure Leidenschaft"
-image: "images/14_Portrait_Tom_Sporer_Sport_05_2025_66.JPG"
+image: "images/optimized/14_Portrait_Tom_Sporer_Sport_05_2025_66.jpg"
 draft: false
 ---
 

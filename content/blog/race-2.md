@@ -2,7 +2,7 @@
 title: "Race 2 - Gletscherlauf Extreme"
 date: 2025-06-20
 description: "Ein Abenteuer auf ewigem Eis, das mich lehrte, dass wahre Geschwindigkeit manchmal bedeutet, langsamer zu werden."
-image: "images/9_Portrait_Tom_Sporer_Sport_05_2025_43.JPG"
+image: "images/optimized/9_Portrait_Tom_Sporer_Sport_05_2025_43.jpg"
 draft: false
 ---
 

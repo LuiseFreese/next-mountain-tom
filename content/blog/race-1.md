@@ -2,7 +2,7 @@
 title: "Race 1 - Alpine Challenge"
 date: 2025-07-15
 description: "Ein intensives Berglauf-Erlebnis in den Tiroler Alpen, das mir zeigte, wo meine wahren Grenzen liegen."
-image: "images/8_Portrait_Tom_Sporer_Sport_05_2025_40.JPG"
+image: "images/optimized/8_Portrait_Tom_Sporer_Sport_05_2025_40.jpg"
 draft: false
 ---
 

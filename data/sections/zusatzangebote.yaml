@@ -17,7 +17,7 @@ video2:
 
 # Hauptbild in der Zusatzangebote-Section
 main_image:
-  src: "/images/14_Portrait_Tom_Sporer_Sport_05_2025_66.JPG"
+  src: "/images/optimized/14_Portrait_Tom_Sporer_Sport_05_2025_66.jpg"
   alt: "Tom Sporer - 360° Coaching und individuelle Betreuung"
 
 coaching_text: |

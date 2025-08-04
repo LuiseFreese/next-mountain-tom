@@ -2,7 +2,7 @@
 title: "Die perfekte Ausrüstung für Hochtouren - Ein Leitfaden"
 date: 2025-08-01
 description: "Nach 15 Jahren Erfahrung als Bergführer verrate ich dir, welche Ausrüstung wirklich zählt und worauf du beim Kauf achten solltest."
-image: "images/13_Portrait_Tom_Sporer_Sport_05_2025_62.JPG"
+image: "images/optimized/13_Portrait_Tom_Sporer_Sport_05_2025_62.jpg"
 draft: false
 ---
 
