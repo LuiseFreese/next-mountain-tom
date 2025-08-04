@@ -14,24 +14,33 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollProgress.style.width = scrollPercent + '%';
     }
     
-    // Enhanced smooth scrolling for navigation links
+    // Enhanced smooth scrolling for navigation links and logo
     const navLinks = document.querySelectorAll('a[href^="#"]');
+    const logoLink = document.querySelector('.navbar-brand');
+    
+    // Add logo to the smooth scroll functionality
+    if (logoLink && logoLink.getAttribute('href') === '#home') {
+        navLinks.push(logoLink);
+    }
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const targetId = this.getAttribute('href').substring(1);
+            const href = this.getAttribute('href');
+            const targetId = href.substring(1);
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
                 // Remove active class from all nav links
-                navLinks.forEach(navLink => {
+                document.querySelectorAll('.nav-link').forEach(navLink => {
                     navLink.classList.remove('active');
                 });
                 
-                // Add active class to clicked link
-                this.classList.add('active');
+                // Add active class to clicked link (but not logo)
+                if (!this.classList.contains('navbar-brand')) {
+                    this.classList.add('active');
+                }
                 
                 // Smooth scroll to target
                 const headerHeight = document.querySelector('.header.navigation').offsetHeight || 70;
