@@ -1,5 +1,46 @@
 /* Custom CSS für Next Mountain */
 
+/* Skip Links for Accessibility */
+.skip-links {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    z-index: 9999;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    color: #fff !important;
+    background: #E94F37 !important;
+    padding: 8px;
+    text-decoration: none !important;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px !important;
+    text-decoration: none !important;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
 /* Global Link Styling */
 a {
     color: #E94F37 !important;
@@ -1108,4 +1149,45 @@ section#contact .contact-card {
 .btn.btn-secondary:hover:not(:disabled) {
     background-color: #5a6268;
     border-color: #545b62;
+}
+
+/* Enhanced Focus Indicators for Accessibility */
+.btn:focus,
+.nav-link:focus,
+.form-control:focus,
+.offer-card:focus,
+button:focus,
+a:focus {
+    outline: 2px solid #E94F37 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px rgba(233, 79, 55, 0.3) !important;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .btn {
+        border: 2px solid !important;
+    }
+    
+    .nav-link {
+        border-bottom: 1px solid transparent;
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus {
+        border-bottom-color: currentColor;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .smooth-scroll {
+        scroll-behavior: auto !important;
+    }
 }

@@ -1,4 +1,10 @@
 {{ "<!-- Fixed Navigation -->" | safeHTML }}
+<!-- Skip Links for Accessibility -->
+<div class="skip-links">
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+    <a href="#navigation" class="skip-link">Zur Navigation springen</a>
+</div>
+
 {{ if .Site.Params.menufixed }}
 <section class="header navigation top-bar">
 {{ else }}

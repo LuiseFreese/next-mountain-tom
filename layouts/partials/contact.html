@@ -29,19 +29,23 @@
                     <input type="hidden" name="source" value="Hauptkontaktformular">
                     
                     <div class="form-group">
-                        <input type="text" placeholder="Dein Name" class="form-control" name="name" id="name" required>
+                        <label for="name" class="sr-only">Dein Name</label>
+                        <input type="text" placeholder="Dein Name" class="form-control" name="name" id="name" required aria-required="true">
                     </div>
 
                     <div class="form-group">
-                        <input type="email" placeholder="Deine E-Mail" class="form-control" name="email" id="email" required>
+                        <label for="email" class="sr-only">Deine E-Mail</label>
+                        <input type="email" placeholder="Deine E-Mail" class="form-control" name="email" id="email" required aria-required="true">
                     </div>
 
                     <div class="form-group">
+                        <label for="subject" class="sr-only">Betreff</label>
                         <input type="text" placeholder="Betreff" class="form-control" name="subject" id="subject">
                     </div>
 
                     <div class="form-group">
-                        <textarea rows="6" placeholder="Deine Nachricht" class="form-control" name="message" id="message" required></textarea>
+                        <label for="message" class="sr-only">Deine Nachricht</label>
+                        <textarea rows="6" placeholder="Deine Nachricht" class="form-control" name="message" id="message" required aria-required="true"></textarea>
                     </div>
 
                     <div id="mail-success" class="success" style="display:none;">
