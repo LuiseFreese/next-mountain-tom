@@ -14,7 +14,9 @@
         <div class="philosophy-content flex-grow-1">
           {{ $data.intro | markdownify }}
           
-          {{ $data.middle_text | markdownify }}
+          <div class="mt-4">
+            {{ $data.middle_text | markdownify }}
+          </div>
           
           {{ $data.outro | markdownify }}
         </div>
