@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            {{ range .Site.RegularPages}}
+            {{ range where .Site.RegularPages "Section" "blog"}}
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-4">
                 <a href="{{ .Permalink }}" class="post-item-link">
