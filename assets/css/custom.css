@@ -985,9 +985,27 @@ section#contact .contact-card {
 }
 
 @media (max-width: 768px) {
+    #footer .footer-bottom {
+        padding: 20px 0;
+        text-align: center !important;
+    }
+    
     #footer .footer-bottom .text-right {
-        text-align: left !important;
+        text-align: center !important;
         margin-top: 15px;
+    }
+    
+    #footer .footer-bottom .text-md-left {
+        text-align: center !important;
+    }
+    
+    #footer .footer-bottom .text-md-right {
+        text-align: center !important;
+    }
+    
+    #footer .footer-bottom p {
+        font-size: 14px;
+        margin-bottom: 10px;
     }
     
     .footer-links a {
