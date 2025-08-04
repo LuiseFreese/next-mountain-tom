@@ -77,3 +77,34 @@ document.addEventListener('DOMContentLoaded', function() {
 {{ "<!-- Main Script -->" | safeHTML }}
 {{ $script := resources.Get "js/script.js" | minify}}
 <script src="{{ $script.Permalink }}"></script>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <p>Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="btn btn-primary btn-sm">Akzeptieren</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Cookie Banner Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    
+    // Check if user has already accepted cookies
+    if (!localStorage.getItem('cookies-accepted')) {
+        cookieBanner.style.display = 'block';
+    }
+    
+    // Handle accept button click
+    acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('cookies-accepted', 'true');
+        cookieBanner.style.display = 'none';
+    });
+});
+</script>

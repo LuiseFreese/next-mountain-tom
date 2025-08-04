@@ -172,8 +172,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Abbrechen</button>
-        <button type="submit" form="inquiry-form" class="btn btn-primary">Anfrage senden</button>
+        <button type="submit" form="inquiry-form" id="inquiry-submit" class="btn btn-primary" disabled>Anfrage senden</button>
       </div>
     </div>
   </div>
@@ -191,7 +190,49 @@ function openInquiryForm(packageTitle, packagePrice) {
   $('.modal').modal('hide');
   setTimeout(function() {
     $('#inquiryModal').modal('show');
+    // Reset validation after modal opens
+    setTimeout(validateInquiryForm, 100);
   }, 300);
+}
+
+// Form Validation Functions
+function validateInquiryForm() {
+  const name = document.getElementById('inquiry-name');
+  const email = document.getElementById('inquiry-email');
+  const submitBtn = document.getElementById('inquiry-submit');
+  
+  if (!name || !email || !submitBtn) return;
+  
+  const isValid = name.value.trim() !== '' && email.value.trim() !== '' && email.validity.valid;
+  submitBtn.disabled = !isValid;
+  
+  if (isValid) {
+    submitBtn.classList.remove('btn-secondary');
+    submitBtn.classList.add('btn-primary');
+  } else {
+    submitBtn.classList.remove('btn-primary');
+    submitBtn.classList.add('btn-secondary');
+  }
+}
+
+function validateContactForm() {
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
+  const submitBtn = document.getElementById('contact-submit');
+  
+  if (!name || !email || !message || !submitBtn) return;
+  
+  const isValid = name.value.trim() !== '' && email.value.trim() !== '' && email.validity.valid && message.value.trim() !== '';
+  submitBtn.disabled = !isValid;
+  
+  if (isValid) {
+    submitBtn.classList.remove('btn-secondary');
+    submitBtn.classList.add('btn-primary');
+  } else {
+    submitBtn.classList.remove('btn-primary');
+    submitBtn.classList.add('btn-secondary');
+  }
 }
 
 // Form Submission Handling
@@ -199,8 +240,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const inquiryForm = document.getElementById('inquiry-form');
   const contactForm = document.getElementById('contact-form');
   
-  // Inquiry Form Handler
+  // Inquiry Form Validation Setup
   if (inquiryForm) {
+    const inquiryName = document.getElementById('inquiry-name');
+    const inquiryEmail = document.getElementById('inquiry-email');
+    
+    if (inquiryName && inquiryEmail) {
+      inquiryName.addEventListener('input', validateInquiryForm);
+      inquiryEmail.addEventListener('input', validateInquiryForm);
+      inquiryName.addEventListener('blur', validateInquiryForm);
+      inquiryEmail.addEventListener('blur', validateInquiryForm);
+      
+      // Initial validation
+      validateInquiryForm();
+    }
+
+    // Inquiry Form Handler
     inquiryForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -220,6 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
           $('#inquiryModal').modal('hide');
           alert('Vielen Dank! Deine Anfrage wurde gesendet. Wir melden uns bald bei dir!');
           inquiryForm.reset();
+          validateInquiryForm();
         } else {
           throw new Error('Fehler beim Senden');
         }
@@ -227,13 +283,30 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Entschuldigung, es gab ein Problem beim Senden deiner Anfrage. Bitte versuche es später erneut oder kontaktiere uns direkt.');
       }).finally(() => {
         submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        validateInquiryForm();
       });
     });
   }
   
-  // Contact Form Handler
+  // Contact Form Validation Setup
   if (contactForm) {
+    const contactName = document.getElementById('name');
+    const contactEmail = document.getElementById('email');
+    const contactMessage = document.getElementById('message');
+    
+    if (contactName && contactEmail && contactMessage) {
+      contactName.addEventListener('input', validateContactForm);
+      contactEmail.addEventListener('input', validateContactForm);
+      contactMessage.addEventListener('input', validateContactForm);
+      contactName.addEventListener('blur', validateContactForm);
+      contactEmail.addEventListener('blur', validateContactForm);
+      contactMessage.addEventListener('blur', validateContactForm);
+      
+      // Initial validation
+      validateContactForm();
+    }
+
+    // Contact Form Handler
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -253,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
           document.getElementById('mail-success').style.display = 'block';
           document.getElementById('mail-fail').style.display = 'none';
           contactForm.reset();
+          validateContactForm();
         } else {
           throw new Error('Fehler beim Senden');
         }
@@ -261,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('mail-fail').style.display = 'block';
       }).finally(() => {
         submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        validateContactForm();
       });
     });
   }
