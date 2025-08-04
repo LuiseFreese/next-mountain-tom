@@ -23,7 +23,7 @@ url = "#leistungen"
 weight = 1
 
 [[menu.nav]]
-name = "ueber mich"
+name = "über mich"
 url = "#uebermich"
 weight = 2
 
