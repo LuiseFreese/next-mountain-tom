@@ -1,0 +1,269 @@
+{{ $data := .Site.Data.sections.angebot }}
+<section id="angebot" class="section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="sec        if (response.ok) {
+          $('#inquiryModal').modal('hide');
+          alert('Vielen Dank! Deine Anfrage wurde gesendet. Wir melden uns bald bei dir!');
+          inquiryForm.reset();
+        } else {
+          throw new Error('Fehler beim Senden');
+        }
+      }).catch(error => {
+        alert('Entschuldigung, es gab ein Problem beim Senden deiner Anfrage. Bitte versuche es später erneut oder kontaktiere uns direkt.');
+      }).finally(() => {">
+          <h2>{{ $data.title }}</h2>
+          <p>{{ $data.subtitle }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tab Navigation -->
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav nav-tabs justify-content-center mb-4" id="angebotTabs" role="tablist">
+          {{ range $index, $tab := $data.tabs }}
+          <li class="nav-item" role="presentation">
+            <a class="nav-link{{ if eq $index 0 }} active{{ end }}" id="{{ $tab.id }}-tab" data-toggle="tab" href="#{{ $tab.id }}" role="tab" aria-controls="{{ $tab.id }}" aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}">
+              <i class="{{ if eq $tab.id "athletes" }}fas fa-running{{ else }}fas fa-calendar-alt{{ end }} mr-2"></i>
+              {{ $tab.title }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Tab Content -->
+    <div class="tab-content" id="angebotTabsContent">
+      {{ range $tabIndex, $tab := $data.tabs }}
+      <div class="tab-pane fade{{ if eq $tabIndex 0 }} show active{{ end }}" id="{{ $tab.id }}" role="tabpanel" aria-labelledby="{{ $tab.id }}-tab">
+        <div class="text-center mb-4">
+          <h4>{{ $tab.subtitle }}</h4>
+        </div>
+        
+        <div class="row">
+          {{ range $tab.packages }}
+          <div class="col-lg-4 mb-4">
+            <div class="offer-card h-100{{ if .featured }} featured{{ end }}" data-toggle="modal" data-target="#{{ .id }}">
+              <div class="card-header text-center">
+                <div class="package-size">{{ .size }}</div>
+                <h4>{{ .title }}</h4>
+                <p class="package-subtitle">{{ .subtitle }}</p>
+              </div>
+              <div class="card-body">
+                <ul class="package-features">
+                  {{ range .features }}
+                  <li><i class="tf-ion-checkmark-circled text-primary"></i> {{ . }}</li>
+                  {{ end }}
+                </ul>
+                <div class="card-price">
+                  <span class="price">{{ .price }}</span>
+                  {{ if .period }}<span class="period">{{ .period }}</span>{{ end }}
+                </div>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-primary btn-block">Mehr erfahren</button>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    
+    <!-- XL Package Hinweis -->
+    <div class="row mt-4">
+      <div class="col-lg-12 text-center">
+        <p class="text-muted">{{ $data.xl_note }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modals für alle Package Details -->
+{{ range $data.tabs }}
+  {{ range .packages }}
+  <div class="modal fade" id="{{ .id }}" tabindex="-1" role="dialog" aria-labelledby="{{ .id }}Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="{{ .id }}Label">{{ .modal.title }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>{{ .modal.intro }}</h6>
+          <p>{{ .modal.description }}</p>
+          
+          <h6>{{ if eq .size "S" }}Was dich erwartet:{{ else if eq .size "M" }}Das Programm umfasst:{{ else if eq .size "L" }}Das Premium-Package beinhaltet:{{ else if eq .size "Basic" }}Das Basic-Package beinhaltet:{{ else if eq .size "Premium" }}Das Premium-Package umfasst:{{ else }}Leistungen:{{ end }}</h6>
+          <ul>
+            {{ range .modal.details }}
+            <li>{{ . | markdownify }}</li>
+            {{ end }}
+          </ul>
+          
+          <h6>Ideal für:</h6>
+          <p>{{ .modal.ideal_for }}</p>
+          
+          <div class="text-center mt-4">
+            <strong>Preis: {{ .price }}{{ if .period }} {{ .period }}{{ end }}</strong>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="openInquiryForm('{{ .modal.title }}', '{{ .price }}{{ if .period }} {{ .period }}{{ end }}')">Jetzt anfragen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+{{ end }}
+
+<!-- Anfrage Modal -->
+<div class="modal fade" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inquiryModalLabel">Anfrage senden</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="inquiry-form" method="post" action="https://formspree.io/f/YOUR_FORM_ID">
+          <input type="hidden" name="_subject" value="Paket-Anfrage von Next Mountain Adventure Website">
+          <input type="hidden" name="_cc" value="info@nextmountain.at">
+          <input type="hidden" name="package" id="inquiry-package" value="">
+          <input type="hidden" name="price" id="inquiry-price" value="">
+          <input type="hidden" name="source" value="Modal-Anfrage">
+          
+          <div class="alert alert-info">
+            <strong>Deine Anfrage für:</strong> <span id="package-display"></span><br>
+            <strong>Preis:</strong> <span id="price-display"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-name">Dein Name *</label>
+            <input type="text" class="form-control" name="name" id="inquiry-name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-email">Deine E-Mail *</label>
+            <input type="email" class="form-control" name="email" id="inquiry-email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-phone">Telefonnummer (optional)</label>
+            <input type="tel" class="form-control" name="phone" id="inquiry-phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-message">Deine Nachricht</label>
+            <textarea rows="4" class="form-control" name="message" id="inquiry-message" placeholder="Erzähl uns von deinen Wünschen und Vorstellungen..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-date">Gewünschter Zeitraum (optional)</label>
+            <input type="text" class="form-control" name="preferred_date" id="inquiry-date" placeholder="z.B. Ende März 2025">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Abbrechen</button>
+        <button type="submit" form="inquiry-form" class="btn btn-primary">Anfrage senden</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openInquiryForm(packageTitle, packagePrice) {
+  // Package-Details in Modal einfügen
+  document.getElementById('inquiry-package').value = packageTitle;
+  document.getElementById('inquiry-price').value = packagePrice;
+  document.getElementById('package-display').textContent = packageTitle;
+  document.getElementById('price-display').textContent = packagePrice;
+  
+  // Aktuelles Modal schließen und Anfrage-Modal öffnen
+  $('.modal').modal('hide');
+  setTimeout(function() {
+    $('#inquiryModal').modal('show');
+  }, 300);
+}
+
+// Form Submission Handling
+document.addEventListener('DOMContentLoaded', function() {
+  const inquiryForm = document.getElementById('inquiry-form');
+  const contactForm = document.getElementById('contact-form');
+  
+  // Inquiry Form Handler
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Wird gesendet...';
+      submitBtn.disabled = true;
+      
+      fetch(inquiryForm.action, {
+        method: 'POST',
+        body: new FormData(inquiryForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          $('#inquiryModal').modal('hide');
+          alert('Vielen Dank! Deine Anfrage wurde gesendet. Wir melden uns bald bei dir!');
+          inquiryForm.reset();
+        } else {
+          throw new Error('Fehler beim Senden');
+        }
+      }).catch(error => {
+        alert('Entschuldigung, es gab ein Problem beim Senden deiner Anfrage. Bitte versuche es später erneut oder kontaktiere uns direkt.');
+      }).finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+  }
+  
+  // Contact Form Handler
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Wird gesendet...';
+      submitBtn.disabled = true;
+      
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById('mail-success').style.display = 'block';
+          document.getElementById('mail-fail').style.display = 'none';
+          contactForm.reset();
+        } else {
+          throw new Error('Fehler beim Senden');
+        }
+      }).catch(error => {
+        document.getElementById('mail-success').style.display = 'none';
+        document.getElementById('mail-fail').style.display = 'block';
+      }).finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+  }
+});
+</script>

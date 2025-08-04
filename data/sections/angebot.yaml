@@ -1,0 +1,163 @@
+title: "Mein Angebot"
+subtitle: "Wähle das passende Package für dein ultimatives Abenteuer"
+
+# Tab-basierte Struktur für verschiedene Zielgruppen
+tabs:
+  - id: "athletes"
+    title: "Für Athleten"
+    subtitle: "Persönliche Packages für deine Trail-Abenteuer"
+    packages:
+      - id: "packageSModal"
+        size: "S"
+        title: "Laufbegleitung"
+        subtitle: "Halber Tag"
+        price: "€400-600"
+        period: "/ halber Tag"
+        featured: false
+        features:
+          - "3-4 Stunden Trailrunning"
+          - "Persönlicher Guide"
+          - "Individuelle Betreuung"
+          - "Achtsamkeitspraxis"
+        modal:
+          title: "Package S - Laufbegleitung (Halber Tag)"
+          intro: "Das perfekte Schnupper-Angebot für Einsteiger"
+          description: "Entdecke die Welt des achtsamen Trailrunnings in entspannter Atmosphäre. Ideal für alle, die einen ersten Eindruck von meiner Begleitungsphilosophie gewinnen möchten."
+          details:
+            - "**3-4 Stunden** gemeinsames Trailrunning in den Bergen"
+            - "**Individuelle Betreuung** - wir laufen in deinem Tempo"
+            - "**Achtsamkeitspraxis** während der Bewegung"
+            - "**Inspirierende Gespräche** über Natur und Persönlichkeitsentwicklung"
+            - "**Grundlagen** der bewussten Lauftechnik"
+          ideal_for: "Laufanfänger, Neugierige und alle, die eine Auszeit vom Alltag suchen"
+          
+      - id: "packageMModal"
+        size: "M"
+        title: "Race Vorbereitung"
+        subtitle: "Intensiv-Training"
+        price: "€2.000"
+        period: "/ Programm"
+        featured: true
+        features:
+          - "Mehrwöchiges Coaching"
+          - "Trainingsplanung"
+          - "Mentale Vorbereitung"
+          - "Technik-Optimierung"
+        modal:
+          title: "Package M - Race Vorbereitung"
+          intro: "Professionelle Vorbereitung auf dein Trailevent"
+          description: "Ein umfassendes Coaching-Programm für ambitionierte Läufer, die sich optimal auf ihren nächsten Trailrun oder Ultratrail vorbereiten möchten."
+          details:
+            - "**Individuelle Trainingsplanung** über mehrere Wochen"
+            - "**Regelmäßige Trainingseinheiten** in den Bergen"
+            - "**Mentale Vorbereitung** und Zielsetzung"
+            - "**Lauftechnik-Optimierung** für verschiedene Untergründe"
+            - "**Ernährungs- und Regenerationsberatung**"
+            - "**Equipment-Beratung** für Trail- und Ultratrails"
+          ideal_for: "Ambitionierte Läufer, die sich auf ein spezifisches Event vorbereiten und ihre Leistung ganzheitlich verbessern möchten"
+          
+      - id: "packageLModal"
+        size: "L"
+        title: "Race mit Video"
+        subtitle: "Premium Experience"
+        price: "€5.000"
+        period: "/ Event"
+        featured: false
+        features:
+          - "Komplette Race-Begleitung"
+          - "Professionelle Videodokumentation"
+          - "Post-Race Analyse"
+          - "Persönlicher Film"
+        modal:
+          title: "Package L - Race mit Video"
+          intro: "Das ultimative Premium-Erlebnis"
+          description: "Erlebe dein Trailevent mit professioneller Begleitung und erhalte eine einzigartige Videodokumentation deiner Heldenreise."
+          details:
+            - "**Komplette Race-Begleitung** von Start bis Ziel"
+            - "**Professionelle Videodokumentation** während des Events"
+            - "**Persönliche Filmproduktion** deines Abenteuers"
+            - "**Live-Coaching** während des Rennens"
+            - "**Post-Race Analyse** und Reflexion"
+            - "**Social Media Content** für deine Kanäle"
+            - "**Erinnerungsstück** - dein persönlicher Trailrunning-Film"
+          ideal_for: "Alle, die ihr Trailevent zu einem unvergesslichen Erlebnis machen und professionell dokumentieren lassen möchten"
+
+  - id: "events"
+    title: "Für Veranstalter"
+    subtitle: "Professionelle Services für Veranstaltungen"
+    packages:
+      - id: "eventBasicModal"
+        size: "Basic"
+        title: "Event Support"
+        subtitle: "Grundausstattung"
+        price: "€1.500"
+        period: "/ Event"
+        featured: false
+        features:
+          - "Video-Dokumentation"
+          - "Social Media Content"
+          - "Teilnehmer-Interviews"
+          - "Highlight-Reel"
+        modal:
+          title: "Event Basic - Grundausstattung"
+          intro: "Professionelle Dokumentation für Ihr Event"
+          description: "Perfekt für kleinere Events, die eine professionelle Dokumentation benötigen."
+          details:
+            - "**Ganztägige Video-Dokumentation** des Events"
+            - "**Social Media Content** für Ihre Kanäle"
+            - "**Teilnehmer-Interviews** und O-Töne"
+            - "**Highlight-Reel** (3-5 Minuten)"
+            - "**Foto-Galerie** der wichtigsten Momente"
+          ideal_for: "Kleinere Events, lokale Veranstaltungen, Vereinsläufe"
+          
+      - id: "eventPremiumModal"
+        size: "Premium"
+        title: "Event Premium"
+        subtitle: "Vollservice"
+        price: "€3.500"
+        period: "/ Event"
+        featured: true
+        features:
+          - "Vollständige Dokumentation"
+          - "Live-Streaming"
+          - "Multi-Kamera Setup"
+          - "Professioneller Film"
+        modal:
+          title: "Event Premium - Vollservice"
+          intro: "Umfassende Betreuung für Ihr Premium-Event"
+          description: "Komplettpaket für größere Events mit höchsten Ansprüchen."
+          details:
+            - "**Multi-Kamera Setup** an verschiedenen Streckenabschnitten"
+            - "**Live-Streaming** für Online-Zuschauer"
+            - "**Professioneller Event-Film** (10-15 Minuten)"
+            - "**Individuelle Teilnehmer-Videos** auf Anfrage"
+            - "**Social Media Management** während des Events"
+            - "**Drohnen-Aufnahmen** (bei Genehmigung)"
+          ideal_for: "Größere Events, Sponsoren-Events, internationale Veranstaltungen"
+          
+      - id: "eventCustomModal"
+        size: "Custom"
+        title: "Maßgeschneidert"
+        subtitle: "Individual"
+        price: "Auf Anfrage"
+        period: ""
+        featured: false
+        features:
+          - "Individuelle Konzeption"
+          - "Flexible Leistungen"
+          - "Persönliche Beratung"
+          - "Unbegrenzte Möglichkeiten"
+        modal:
+          title: "Custom Event - Maßgeschneiderte Lösung"
+          intro: "Ihr Event, Ihre Vision, unsere Umsetzung"
+          description: "Für besondere Events mit speziellen Anforderungen entwickeln wir gemeinsam die perfekte Lösung."
+          details:
+            - "**Individuelle Beratung** und Konzeptentwicklung"
+            - "**Flexible Pakete** nach Ihren Bedürfnissen"
+            - "**Erweiterte Services** wie Workshop-Dokumentation"
+            - "**Langzeit-Projekte** und Serien-Dokumentationen"
+            - "**Corporate Events** und Firmen-Challenges"
+            - "**Internationale Produktionen**"
+          ideal_for: "Einzigartige Events, Corporate Challenges, Langzeit-Projekte"
+
+xl_note: "Für XL-Packages: Lass uns gern ins Gespräch kommen für maßgeschneiderte Premium-Erlebnisse"

@@ -23,13 +23,17 @@
             </div>
             {{ "<!-- Contact Form -->" | safeHTML }}
             <div class="contact-form col-12 col-md-6 ">
-                <form id="contact-form" method="post" action="sendmail.php" role="form">
+                <form id="contact-form" method="post" action="https://formspree.io/f/YOUR_FORM_ID" role="form">
+                    <input type="hidden" name="_subject" value="Kontaktanfrage von Next Mountain Adventure Website">
+                    <input type="hidden" name="_cc" value="info@nextmountain.at">
+                    <input type="hidden" name="source" value="Hauptkontaktformular">
+                    
                     <div class="form-group">
-                        <input type="text" placeholder="Ihr Name" class="form-control" name="name" id="name">
+                        <input type="text" placeholder="Dein Name" class="form-control" name="name" id="name" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="email" placeholder="Ihre E-Mail" class="form-control" name="email" id="email">
+                        <input type="email" placeholder="Deine E-Mail" class="form-control" name="email" id="email" required>
                     </div>
 
                     <div class="form-group">
@@ -37,19 +41,19 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea rows="6" placeholder="Nachricht" class="form-control" name="message" id="message"></textarea>
+                        <textarea rows="6" placeholder="Deine Nachricht" class="form-control" name="message" id="message" required></textarea>
                     </div>
 
-                    <div id="mail-success" class="success">
-                        Vielen Dank! Ihre Nachricht wurde gesendet :)
+                    <div id="mail-success" class="success" style="display:none;">
+                        Vielen Dank! Deine Nachricht wurde erfolgreich gesendet.
                     </div>
 
-                    <div id="mail-fail" class="error">
-                        Entschuldigung, etwas ist schief gelaufen. Versuchen Sie es später erneut :(
+                    <div id="mail-fail" class="error" style="display:none;">
+                        Entschuldigung, beim Senden ist ein Fehler aufgetreten. Bitte versuche es später erneut.
                     </div>
 
                     <div id="cf-submit">
-                        <input type="submit" id="contact-submit" class="btn btn-primary" value="Absenden">
+                        <button type="submit" id="contact-submit" class="btn btn-primary">Nachricht senden</button>
                     </div>
                 </form>
             </div>
@@ -59,7 +63,7 @@
                 <div class="contact-card">
                     <div class="contact-card-header">
                         <i class="fas fa-map-marker-alt"></i>
-                        <h4>Unser Standort</h4>
+                        <h4>Location</h4>
                     </div>
                     <div class="contact-card-body">
                         {{ with .Site.Params.contact.address }}<p>{{ . | safeHTML }}</p>{{ end }}
@@ -84,47 +88,33 @@
                 <div class="contact-card">
                     <div class="contact-card-header">
                         <i class="fas fa-share-alt"></i>
-                        <h4>Folge mir gern</h4>
+                        <h4>Folge uns gern</h4>
                     </div>
                     <div class="contact-card-body">
                         <ul class="list-inline social-icon">
                             {{ with .Site.Params.contact.facebook }}
                             <li class="list-inline-item">
-                                <a href="{{.}}">
+                                <a href="{{.}}" target="_blank" rel="noopener">
                                     <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            {{ end }}
-                            {{ with .Site.Params.contact.twitter }}
-                            <li class="list-inline-item">
-                                <a href="{{.}}">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            {{ end }}
-                            {{ with .Site.Params.contact.linkedin }}
-                            <li class="list-inline-item">
-                                <a href="{{.}}">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            {{ end }}
-                            {{ with .Site.Params.contact.dribbble }}
-                            <li class="list-inline-item">
-                                <a href="{{.}}">
-                                    <i class="fab fa-dribbble"></i>
                                 </a>
                             </li>
                             {{ end }}
                             {{ with .Site.Params.contact.instagram }}
                             <li class="list-inline-item">
-                                <a href="{{.}}">
+                                <a href="{{.}}" target="_blank" rel="noopener">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             {{ end }}
+                            {{ with .Site.Params.contact.youtube }}
                             <li class="list-inline-item">
-                                <a href="/index.xml">
+                                <a href="{{.}}" target="_blank" rel="noopener">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                            {{ end }}
+                            <li class="list-inline-item">
+                                <a href="/index.xml" target="_blank" rel="noopener">
                                     <i class="fas fa-rss"></i>
                                 </a>
                             </li>

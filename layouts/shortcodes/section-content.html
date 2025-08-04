@@ -1,0 +1,18 @@
+{{/* Shortcode to load markdown content for sections */}}
+{{ $page := .Get "page" }}
+{{ $section := .Get "section" }}
+
+{{ if $page }}
+  {{ $contentPage := $.Page.Site.GetPage $page }}
+  {{ if $contentPage }}
+    {{ if $section }}
+      {{ index $contentPage.Params $section | markdownify }}
+    {{ else }}
+      {{ $contentPage.Content }}
+    {{ end }}
+  {{ else }}
+    <p class="text-danger">Content not found: {{ $page }}</p>
+  {{ end }}
+{{ else }}
+  <p class="text-danger">Missing page parameter</p>
+{{ end }}

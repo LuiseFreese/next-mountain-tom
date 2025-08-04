@@ -15,27 +15,26 @@
             {{ range first 3 .Site.RegularPages}}
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-4">
-                <div class="post-item">
-                    <div class="post-thumb">
-                        <img class="img-fluid shadow rounded" src="{{ .Params.image | absURL }}" alt="Tom am Laufen">
+                <a href="{{ .Permalink }}" class="post-item-link">
+                    <div class="post-item">
+                        <div class="post-thumb">
+                            <img class="img-fluid shadow rounded" src="{{ .Params.image | absURL }}" alt="Tom am Laufen">
+                        </div>
+                        <div class="post-title">
+                            <h3 class="mt-0">{{ .Title }}</h3>
+                        </div>
+                        <div class="post-meta">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <span>{{ .Date.Format .Site.Params.dateFormat }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="post-content">
+                            <p>{{ .Params.description | default .Summary }}</p>
+                        </div>
                     </div>
-                    <div class="post-title">
-                        <h3 class="mt-0">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h3>
-                    </div>
-                    <div class="post-meta">
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <span>{{ .Date.Format .Site.Params.dateFormat }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="post-content">
-                        <p>{{ .Summary }}</p>
-                    </div>
-                    <a class="btn btn-main" href="{{ .Permalink }}">Weiterlesen</a>
-                </div>
+                </a>
             </article>
             {{ "<!-- /single blog post -->" | safeHTML }}
             {{ end }}

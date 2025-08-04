@@ -68,8 +68,8 @@ description = "Guiding & Coaching for your ultimate Adventure. Was wäre eigentl
 button = false
 btnText = ""
 btnURL = ""
-videoThumb = "images/slider/video-player-thumb.jpg"
-videoURL = "https://www.youtube.com/watch?v=cM5VMYF0nVk"
+videoThumb = "images/9_Portrait_Tom_Sporer_Sport_05_2025_43.JPG"
+videoURL = "https://www.youtube.com/embed/cM5VMYF0nVk?rel=0"
 
 # About Section
 [params.aboutSm]
@@ -93,13 +93,15 @@ subtitle = "Bereit für dein nächstes Bergabenteuer? Schreib mir und wir planen
 address = "Bruder Wilram Straße<br>Wörgl, Österreich"
 phone = "+12 34 567 89 10"
 email = "info@nextmountain.at"
-facebook = "https://www.facebook.com/"
-twitter = "https://twitter.com/"
-linkedin = "https://www.linkedin.com/"
-instagram = "https://www.instagram.com/"
+facebook = "https://www.facebook.com/tom.sporer/"
+instagram = "https://www.instagram.com/tom.sporer/"
+youtube = "https://www.youtube.com/@TomSporer"
 mapLatitude = "47.4849"
 mapLongitude = "12.0588"
 mapMarker = "images/favicon.png"
+
+# Google Maps API deaktiviert - verwende Fallback-Lösung
+# googleMapsApiKey = "YOUR_REAL_API_KEY_HERE"
 
 # Call to Action Section
 [params.cta]

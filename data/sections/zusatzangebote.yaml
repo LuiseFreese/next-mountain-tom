@@ -1,0 +1,26 @@
+title: "Meine Zusatzangebote"
+subtitle: "Erweiterte Services für dein persönliches Abenteuer"
+
+intro: |
+  Auf deinen Wunsch biete ich zusätzlich die Option unser gemeinsames Abenteuer auf dem Weg zum „zweiten Berg" filmisch festzuhalten:
+
+video1:
+  url: "https://youtu.be/cM5VMYF0nVk?si=uJukF3PAm2jq3CQa"
+  title: "Filmische Dokumentation"
+
+workstation_text: |
+  Wenn du gerne mal auf einige Zeit in den Bergen leben und arbeiten willst, bin ich gerne dein Gastgeber für die nächste „Workation":
+
+video2:
+  url: "https://youtu.be/rd2YB7QsJ44?si=UZqX9D6E18tGiCLc"
+  title: "Mountain Workation"
+
+# Hauptbild in der Zusatzangebote-Section
+main_image:
+  src: "/images/14_Portrait_Tom_Sporer_Sport_05_2025_66.JPG"
+  alt: "Tom Sporer - 360° Coaching und individuelle Betreuung"
+
+coaching_text: |
+  Ganz individuell biete ich **360°-Coaching**, das dich bei den nächsten Schritten der persönlichen Potenzialentfaltung über einen längeren Zeitraum in der Weiterentwicklung begleitet.
+
+

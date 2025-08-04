@@ -1,0 +1,70 @@
+{{ $data := .Site.Data.sections.zusatzangebote }}
+<section id="zusatzangebote" class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="section-title">
+          <h2>{{ $data.title }}</h2>
+          <p>{{ $data.subtitle }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="zusatzangebote-content text-center">
+          
+          <!-- Intro Text -->
+          {{ $data.intro | markdownify }}
+          
+          <!-- Video 1 - Filmische Dokumentation -->
+          {{ if $data.video1 }}
+          <div class="video-container my-4">
+            <div class="embed-responsive embed-responsive-16by9">
+              {{ $embedUrl1 := replace $data.video1.url "youtu.be/" "www.youtube.com/embed/" }}
+              {{ $embedUrl1 = replace $embedUrl1 "?si=" "?rel=0&si=" }}
+              <iframe class="embed-responsive-item" src="{{ $embedUrl1 }}" allowfullscreen></iframe>
+            </div>
+            <p class="mt-2 text-muted">{{ $data.video1.title }}</p>
+          </div>
+          {{ end }}
+          
+          <!-- Workstation Text -->
+          {{ $data.workstation_text | markdownify }}
+          
+          <!-- Video 2 - Mountain Workstation -->
+          {{ if $data.video2 }}
+          <div class="video-container my-4">
+            <div class="embed-responsive embed-responsive-16by9">
+              {{ $embedUrl2 := replace $data.video2.url "youtu.be/" "www.youtube.com/embed/" }}
+              {{ $embedUrl2 = replace $embedUrl2 "?si=" "?rel=0&si=" }}
+              <iframe class="embed-responsive-item" src="{{ $embedUrl2 }}" allowfullscreen></iframe>
+            </div>
+            <p class="mt-2 text-muted">{{ $data.video2.title }}</p>
+          </div>
+          {{ end }}
+          
+          <!-- Hauptbild -->
+          {{ if $data.main_image }}
+          <div class="video-container my-4">
+            <div class="text-center">
+              <img src="{{ $data.main_image.src }}" alt="{{ $data.main_image.alt }}" class="img-fluid rounded shadow">
+            </div>
+          </div>
+          {{ end }}
+          
+          <!-- Coaching Text -->
+          {{ $data.coaching_text | markdownify }}
+          
+          <!-- Logo -->
+          {{ if $data.logo }}
+          <div class="text-center mt-5">
+            <img src="{{ $data.logo.src }}" alt="{{ $data.logo.alt }}" class="img-fluid" style="max-width: 200px;">
+          </div>
+          {{ end }}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
