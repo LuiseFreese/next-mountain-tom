@@ -6,8 +6,8 @@ draft: false
 
 # Next Mountain
 
-## Guiding & Coaching for your ultimate Adventure
-**Führung & Begleitung auf deinem ultimativen Abenteuer**
+## Führung & Begleitung auf deinem ultimativen Abenteuer 
+**Guiding & Coaching for your ultimate Adventure
 
 ---
 
